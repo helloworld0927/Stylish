@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stylish shopping site, best in Taiwan">
+
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/cart_new.css" />
+
+    <title>Cart__Stylish</title>
+</head>
+
+<body>
+    <header>
+        <!-- ========== Top nav ========== -->
+        <!-- web logo -->
+        <div class="logo">
+            <a href="./index.html"><img src="img/logo.png" alt="Logo picture" /></a>
+        </div>
+
+        <!-- left nav -->
+        <nav>
+            <div class="item">
+                <a href="#" onclick=" womenProductAPI()"> 女裝 </a>
+            </div>
+            <div class="item">
+                <a href="#" class="nav-bar" onclick="menProductAPI()"> 男裝 </a>
+            </div>
+            <div class="item">
+                <a href="#" onclick=" accessoriesAPI()"> 配件 </a>
+            </div>
+        </nav>
+
+        <!-- === Full web right feature (Seach, cart, member) === -->
+        <div class="feature">
+
+            <!-- seach bar -->
+            <div class="search--web" action="./">
+                <input type="search" id="searchValueW"><button type="submit" id="webSeacrhBtn"
+                    onclick="searchProductWeb()"></input>
+            </div>
+
+            <!-- cart icon -->
+            <a href="cart.html" class="cart--web "><img src="img/cart.png" alt="cart logo picture" />
+                <div class="cart--amount" id="cartAmount"></div>
+            </a>
+
+            <!-- member icon -->
+            <a href="#" class="member--web "><img src="img/member.png" id="memberIconW" alt="member logo picture"></a>
+
+        </div>
+
+        <!-- === search logo for mobile === -->
+        <div class="logo_search">
+            <a href="#" onclick="mobileSearch()"><img id="mobileSearchIcon" src="img/search.png"
+                    alt="seach logo picture"></a>
+            <div class="search--mobile" id="mobileSearchBar">
+                <input type="search" id="searchValueM"><button type="submit" id="mobileSeacrhBtn"
+                    onclick="searchProductMobile()"><img src="img/search.png" alt="seach logo picture">
+            </div>
+        </div>
+
+    </header>
+    <!-- End of header -->
+    <!-- --- -->
+
+    <!-- ========== Black bar and mobile nav  ========== -->
+    <nav class="mobile">
+        <div class="item">
+            <a href="#" onclick=" womenProductAPI()"> 女裝 </a>
+        </div>
+        <div class="item">
+            <a href="#" class="nav-bar" onclick="menProductAPI()"> 男裝 </a>
+        </div>
+        <div class="item">
+            <a href="#" onclick=" accessoriesAPI()"> 配件 </a>
+        </div>
+    </nav>
+    <!-- --- -->
+
+    <!-- ========== Mobile bottom feature (cart, member) ========== -->
+    <div class="feature--mobile">
+        <div>
+            <a href="cart.html" class="feature--mobile__bar">
+                <img src="img/cart-mobile.png" alt="cart logo picture">購物車
+                <sapn class="cart-amount-mobile" id="cartAmountMobile" />
+            </a>
+
+            <a href="#">
+                <img src="img/member-mobile.png" alt="member logo picture">會員</a>
+        </div>
+    </div>
+    <!-- --- -->
+
+    <!-- ========== Main ========== -->
+    <main>
+        <div class="view" id="products">
+            <div class="cart__str--mobile">購物車</div>
+            <div class="cart__str--web">
+                <div>數量</div>
+                <div>單價</div>
+                <div>小計</div>
+            </div>
+
+            <div class="cart__box" id="contentWrap"></div>
+
+            <div class="delivery">
+                <div class="delivery__country">
+                    <span>配送國家</span>
+                    <select class="delivery__country--select" id="delivery__country--select">
+                        <option name="country" value="taiwen" selected="selected">台灣及離島</option>
+                        <option name="country" value="abroad">國外</option>
+                    </select>
+                </div>
+
+                <div class="pay__type">
+                    <span>付款方式</span>
+                    <select class="pay__type--select" id="pay__type--select">
+                        <option value="credit_card" selected="selected">信用卡</option>
+                        <!-- <option value="COD">貨到付款</option> -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="reminder">
+                ※ 提醒您：<br />
+                ● 選擇宅配-請填寫正確收件人資訊，避免包裹配送不達<br />
+                ● 選擇超商-請填寫正確收件人姓名(與證件相符)，避免無法領取
+            </div>
+
+            <div class="recipient">
+                <div class="recipient__title">訂購資料</div>
+
+                <span>收件人姓名</span>
+                <input type="text" name="name" class="consumerName" id="name" />
+
+                <span>手機</span>
+                <input type="text" name="phone" class="consumerPhone" id="phone" />
+
+                <span>Email</span>
+                <input type="email" name="email" class="consumerEmail" id="email" />
+
+                <span>地址</span>
+                <input type="text" name="address" class="consumerAddress" id="address" />
+
+                <span>配送時間</span>
+                <div class="recipient__time">
+                    <input type="radio" name="time" value="morning">08:00-12:00</input>
+                    <input type="radio" name="time" value="afternoon">14:00-18:00</input>
+                    <input type="radio" name="time" value="anytime" checked>不指定</input>
+                </div>
+            </div>
+
+            <div class="payment">
+                <div class="payment__title">付款資料</div>
+                <span>信用卡號碼</span>
+                <div class="tpfield" id="card-number"></div>
+                <span>有效期限</span>
+                <div class="tpfield" id="card-expiration-date"></div>
+                <span>安全碼</span>
+                <div class="tpfield" id="card-ccv"></div>
+            </div>
+
+            <div class="price">
+                <div class="price__space"></div>
+                <div class="price__info">
+                    <div class="price__str">
+                        <div>總金額&nbsp&nbsp&nbsp&nbsp</div>
+                        <div>運費&nbsp&nbsp&nbsp&nbsp</div>
+                        <div>應付金額&nbsp&nbsp&nbsp&nbsp</div>
+                    </div>
+                    <div class="total">
+                        <div class="total__price" id="total__price">NT. 0</div>
+                        <div class="total__delivery" id="total__delivery">NT. 0</div>
+                        <div class="final__price" id="final__price">NT. 0</div>
+                    </div>
+                    <div class="separate"></div>
+                </div>
+            </div>
+
+            <div class="pay__button--wrap">
+                <button class="pay__button" id="pay__button" onclick="CheckData()">確認付款</button>
+            </div>
+        </div>
+    </main>
+    <!-- --- -->
+
+    <!-- ========== Start of footer ========== -->
+    <footer>
+        <div class="view">
+            <div class="link link-0">
+                <div class="item">關於 Stylish</div>
+                <div class="item">服務條款</div>
+                <div class="item">隱私政策</div>
+            </div>
+            <div class="link link-1">
+                <div class="item">聯絡我們</div>
+                <div class="item">FAQ</div>
+            </div>
+
+            <div class="social">
+                <img src="img/line.png" alt="line logo" />
+                <img src="img/twitter.png" alt="twitter logo" />
+                <img src="img/facebook.png" alt="facebook logo" />
+            </div>
+
+            <div class="copyright">&copy; 2018. All rights reserved.</div>
+        </div>
+    </footer>
+    <!-- End of footer -->
+</body>
+
+<script src="js/cart.js"></script>
+
+</html>

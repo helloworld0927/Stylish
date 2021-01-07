@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stylish shopping site, best in Taiwan">
+
+  <link rel="stylesheet" href="./css/normalize.css" />
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="stylesheet" href="./css/thankyou.css" />
+
+  <title>Stylish--Jacky</title>
+</head>
+
+<body>
+  <header>
+    <!-- ========== Top nav ========== -->
+    <!-- web logo -->
+    <div class="logo">
+      <a href="./index.html"><img src="img/logo.png" alt="Logo picture" /></a>
+    </div>
+
+    <!-- left nav -->
+    <nav>
+      <div class="item">
+        <a href="#" onclick=" womenProductAPI()"> 女裝 </a>
+      </div>
+      <div class="item">
+        <a href="#" class="nav-bar" onclick="menProductAPI()"> 男裝 </a>
+      </div>
+      <div class="item">
+        <a href="#" onclick=" accessoriesAPI()"> 配件 </a>
+      </div>
+    </nav>
+
+    <!-- === Full web right feature (Seach, cart, member) === -->
+    <div class="feature">
+
+      <!-- seach bar -->
+      <div class="search--web" action="./">
+        <input type="search" id="searchValueW"><button type="submit" id="webSeacrhBtn"
+          onclick="searchProductWeb()"></input>
+      </div>
+
+      <!-- cart icon -->
+      <a href="cart.html" class="cart--web "><img src="img/cart.png" alt="cart logo picture" />
+        <div class="cart--amount" id="cartAmount"></div>
+      </a>
+
+      <!-- member icon -->
+      <a href="#" class="member--web " onclick="checkLoginState()"><img src="img/member.png" id="memberIconW"
+          alt="member logo picture"></a>
+
+    </div>
+
+    <!-- === search logo for mobile === -->
+    <div class="logo_search">
+      <a href="#" onclick="mobileSearch()"><img id="mobileSearchIcon" src="img/search.png" alt="seach logo picture"></a>
+      <div class="search--mobile" id="mobileSearchBar">
+        <input type="search" id="searchValueM"><button type="submit" id="mobileSeacrhBtn"
+          onclick="searchProductMobile()"><img src="img/search.png" alt="seach logo picture">
+      </div>
+    </div>
+
+  </header>
+  <!-- End of header -->
+  <!-- --- -->
+
+  <!-- ========== Black bar and mobile nav  ========== -->
+  <nav class="mobile">
+    <div class="item">
+      <a href="#" onclick=" womenProductAPI()"> 女裝 </a>
+    </div>
+    <div class="item">
+      <a href="#" class="nav-bar" onclick="menProductAPI()"> 男裝 </a>
+    </div>
+    <div class="item">
+      <a href="#" onclick=" accessoriesAPI()"> 配件 </a>
+    </div>
+  </nav>
+  <!-- --- -->
+
+  <!-- ========== Mobile bottom feature (cart, member) ========== -->
+  <div class="feature--mobile">
+    <div>
+      <a href="cart.html" class="feature--mobile__bar">
+        <img src="img/cart-mobile.png" alt="cart logo picture">購物車
+        <sapn class="cart-amount-mobile" id="cartAmountMobile" />
+      </a>
+
+      <a href="#" onclick="checkLoginState()">
+        <img src="img/member-mobile.png" alt="member logo picture">會員</a>
+    </div>
+  </div>
+  <!-- --- -->
+
+  <!-- ========== banner photo  ========== -->
+  <div class="banner" id="banner">
+    <!-- <div class="bannerWrap" id="bannerWrap"></div> -->
+  </div>
+
+  <!-- ========== Main ========== -->
+  <main>
+    <div class="main-wrap">
+      <div class="imgWrap"><img src="img/thankyou.jpg"></div>
+      <h2>Thank you for ordering</h2>
+      <h2>交易成功</h2>
+      <h3 id="bookingNumber"></h3>
+      <a href="index.html"><button class="indexBtn">查看更多商品</button></a>
+
+    </div>
+  </main>
+  <!-- --- -->
+
+  <!-- ========== Start of footer ========== -->
+  <footer>
+    <div class="view">
+      <div class="link link-0">
+        <div class="item">關於 Stylish</div>
+        <div class="item">服務條款</div>
+        <div class="item">隱私政策</div>
+      </div>
+      <div class="link link-1">
+        <div class="item">聯絡我們</div>
+        <div class="item">FAQ</div>
+      </div>
+
+      <div class="social">
+        <img src="img/line.png" alt="line logo" />
+        <img src="img/twitter.png" alt="twitter logo" />
+        <img src="img/facebook.png" alt="facebook logo" />
+      </div>
+
+      <div class="copyright">&copy; 2018. All rights reserved.</div>
+    </div>
+  </footer>
+  <!-- End of footer -->
+</body>
+<script src="js/thankyou.js"></script>
+<script src="js/fb.js"></script>
+
+</html>
